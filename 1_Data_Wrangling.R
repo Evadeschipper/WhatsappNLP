@@ -29,5 +29,5 @@ dat <- data.frame(timestamp, author, message, stringsAsFactors = F)
 dat$media <- ifelse(dat$message == "<Media omitted>", T, F)
 dat$message[dat$message == "<Media omitted>"] <- NA
 
-write.table(dat, file = "dat.csv", row.names = F, sep = "\t")
+write.table(dat, file = "dat.csv", row.names = F, sep = "##@@##")
 save(dat, file = "dat.Rdata")
