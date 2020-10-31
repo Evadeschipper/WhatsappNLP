@@ -23,6 +23,11 @@ for (m in 1:length(txt)){
 }
 
 # create dataframe
-dat <- data.frame(timestamp, author, message)
+dat <- data.frame(timestamp, author, message, stringsAsFactors = F)
 
+# Presence of media
+dat$media <- ifelse(dat$message == "<Media omitted>", T, F)
+dat$message[dat$message == "<Media omitted>"] <- NA
+
+write.table(dat, file = "dat.csv", row.names = F, sep = "\t")
 save(dat, file = "dat.Rdata")

@@ -2,12 +2,9 @@
 library(tokenizers)
 library(openNLP)
 library(stringr)
+library(tidyverse)
 
 load("dat.Rdata")
-
-# Presence of media
-dat$media <- ifelse(dat$message == "<Media omitted>", T, F)
-dat$message[dat$message == "<Media omitted>"] <- NA
 
 # Number of characters used in message
 dat$nchar <- nchar(dat$message)
